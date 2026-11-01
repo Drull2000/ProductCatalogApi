@@ -1,0 +1,28 @@
+@ProductCatalogApi_HostAddress = http://localhost:5235
+
+POST {{ProductCatalogApi_HostAddress}}/api/product
+Content-Type: multipart/form-data; boundary=ProductBoundary
+
+--ProductBoundary
+Content-Disposition: form-data; name="name"
+
+Notebook
+--ProductBoundary
+Content-Disposition: form-data; name="description"
+
+Portable computer
+--ProductBoundary
+Content-Disposition: form-data; name="price"
+
+999.99
+--ProductBoundary
+Content-Disposition: form-data; name="photos"; filename="photo-front.jpg"
+Content-Type: image/jpeg
+
+< ./photo-front.jpg
+--ProductBoundary
+Content-Disposition: form-data; name="photos"; filename="photo-back.jpg"
+Content-Type: image/jpeg
+
+< ./photo-back.jpg
+--ProductBoundary--
